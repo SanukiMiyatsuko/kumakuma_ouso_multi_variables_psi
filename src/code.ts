@@ -150,9 +150,6 @@ export function fund(s: T, t: T, lambda: number): T {
                     return Z;
                 }
             }
-        } else if (equal(dom_i_0, OMEGA, lambda)) {
-            sArray[i_0] = fund(s.arr[i_0], t, lambda);
-            return psi(sArray);
         } else {
             if (less_than(dom_i_0, s, lambda)) {
                 sArray[i_0] = fund(s.arr[i_0], t, lambda);
