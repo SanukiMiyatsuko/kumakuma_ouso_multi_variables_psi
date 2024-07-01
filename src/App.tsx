@@ -235,9 +235,9 @@ function App() {
         )}
       </div>
       <p>
-        <a href="https://googology.fandom.com/ja/wiki/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%96%E3%83%AD%E3%82%B0:%E7%AB%B9%E5%8F%96%E7%BF%81/%E6%8B%A1%E5%BC%B5Goal%E9%96%A2%E6%95%B0" target="_blank" rel="noreferrer">Definition of "Extended Goal Function"</a> by <a href="https://googology.fandom.com/ja/wiki/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC:%E7%AB%B9%E5%8F%96%E7%BF%81" target="_blank" rel="noreferrer">竹取翁</a>, Retrieved 2024/06/10 <br />
-        The program <a href="https://github.com/SanukiMiyatsuko/extended_goal_function" target="_blank" rel="noreferrer">https://github.com/SanukiMiyatsuko/extended_goal_function</a> is licensed by <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" target="_blank" rel="noreferrer">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br />
-        Last updated: 2024/06/25
+        <a href="https://googology.fandom.com/ja/wiki/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%96%E3%83%AD%E3%82%B0:Mitsuki1729/%E8%A9%A6%E4%BD%9C:%E3%81%8F%E3%81%BE%E3%81%8F%E3%81%BE(%E5%A4%A7%E5%98%98)%E5%A4%9A%E5%A4%89%E6%95%B0%CE%A8" target="_blank" rel="noreferrer">Definition of "くまくま(大嘘)多変数Ψ"</a> by <a href="https://googology.fandom.com/ja/wiki/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC:Mitsuki1729" target="_blank" rel="noreferrer">Mitsuki1729</a>, Retrieved 2020/10/12 <br />
+        The program <a href="https://github.com/SanukiMiyatsuko/kumakuma_ouso_multi_variables_psi" target="_blank" rel="noreferrer">https://github.com/SanukiMiyatsuko/kumakuma_ouso_multi_variables_psi</a> is licensed by <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" target="_blank" rel="noreferrer">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br />
+        Last updated: 2024/07/02
       </p>
     </div>
   );
