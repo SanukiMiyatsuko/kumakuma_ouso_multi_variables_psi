@@ -59,14 +59,14 @@ function equalize(s: T, n: number): T {
       return plus(equalize(a, n), equalize(b, n));
   } else {
       if (s.arr.length === n) {
-          if (s.arr.every((x) => equalize_bool(x, n))) {
+          if (!s.arr.every((x) => equalize_bool(x, n))) {
               return psi(s.arr.map((x) => equalize(x, n)));
           } else {
               return s;
           }
       } else {
-          if (s.arr.every((x) => equalize_bool(x, n))) {
-              let sarr = s.arr.map((x) => equalize(x, n)) 
+          if (!s.arr.every((x) => equalize_bool(x, n))) {
+              let sarr = s.arr.map((x) => equalize(x, n));
               const t = Array(n - s.arr.length).fill(Z);
               return psi(t.concat(sarr));
           } else {
@@ -107,7 +107,7 @@ function App() {
       const xEqualize: T = equalize(x, maxLength);
       let yEqualize: T = Z;
       if (y !== null) yEqualize = equalize(y, maxLength);
-      
+
       let result;
       switch (operation) {
         case "fund":
@@ -115,11 +115,11 @@ function App() {
           result = fund(xEqualize, yEqualize, maxLength);
           break;
         case "dom":
-          result = dom(x, maxLength);
+          result = dom(xEqualize, maxLength);
           break;
         case "less_than":
           if (y === null) throw new Error("Bの入力が必要です");
-          setOutput(`出力：${less_than(x, y, maxLength) ? "真" : "偽"}`);
+          setOutput(`出力：${less_than(xEqualize, yEqualize, maxLength) ? "真" : "偽"}`);
           return;
         default:
           throw new Error("不明な操作");
@@ -224,14 +224,14 @@ function App() {
         {outputError !== "" ? (
           <div className="notification is-danger">{outputError}</div>
         ) : (
-          <p className="Appa">
+          <div className="Appa">
             <ReactMarkdown
               remarkPlugins={[remarkMath]}
               rehypePlugins={[rehypeKatex]}
             >
               {Output}
             </ReactMarkdown>
-          </p>
+          </div>
         )}
       </div>
       <p>

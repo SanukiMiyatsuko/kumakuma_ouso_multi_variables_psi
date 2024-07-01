@@ -121,6 +121,9 @@ export function dom(t: T, lambda: number): T {
 export function fund(s: T, t: T, lambda: number): T {
     let oneArray = Array(lambda).fill(Z);
     const ONE = psi(oneArray);
+    let omegaArray = Array(lambda).fill(Z);
+    omegaArray[lambda-1] = ONE;
+    const OMEGA = psi(omegaArray);
     if (s.type === "zero") {
         return Z;
     } else if (s.type === "plus") {
@@ -135,7 +138,7 @@ export function fund(s: T, t: T, lambda: number): T {
         }
         if (i_0 === -1) return Z;
         let sArray = [...s.arr];
-        const dom_i_0 = dom(sArray[i_0], lambda);
+        const dom_i_0 = dom(s.arr[i_0], lambda);
         if (equal(dom_i_0, ONE, lambda)) {
             if (i_0 < lambda - 1) {
                 return t;
@@ -147,6 +150,9 @@ export function fund(s: T, t: T, lambda: number): T {
                     return Z;
                 }
             }
+        } else if (equal(dom_i_0, OMEGA, lambda)) {
+            sArray[i_0] = fund(s.arr[i_0], t, lambda);
+            return psi(sArray);
         } else {
             if (less_than(dom_i_0, s, lambda)) {
                 sArray[i_0] = fund(s.arr[i_0], t, lambda);
@@ -160,7 +166,7 @@ export function fund(s: T, t: T, lambda: number): T {
                 }
                 let dom_i_0Array = [...dom_i_0.arr];
                 dom_i_0Array[j_0] = fund(dom_i_0.arr[j_0], Z, lambda);
-                if (equal(dom(t, lambda), ONE, lambda), lambda) {
+                if (equal(dom(t, lambda), ONE, lambda)) {
                     const p = fund(s, fund(t, Z, lambda), lambda);
                     if (p.type !== "psi") throw Error("なんでだよ");
                     const Gamma = p.arr[i_0];
@@ -183,8 +189,8 @@ export function term_to_string(t: T, option: Options, lambda: number): string {
         return "0";
     } else if (t.type === "psi") {
         if (!option.checkOnOffF) {
-            while (t.arr[t.arr.length-1].type === "zero") {
-                t = psi(t.arr.slice(0, t.arr.length - 1));
+            while (t.arr[0].type === "zero" && t.arr.length > 1) {
+                t = psi(t.arr.slice(1));
             }
         }
         let str = headname;
