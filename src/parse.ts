@@ -145,12 +145,11 @@ export class Scanner {
                 argarr.push(term);
                 this.expect("(");
             }
-            let term = this.parse_term();
-            argarr.push(term);
+            const arg = this.parse_term();
+            argarr.push(arg);
             while (this.consume(",")) {
-                term = this.parse_term();
+                const term = this.parse_term();
                 argarr.push(term);
-                if (this.consume(")")) return psi(argarr);
             }
             this.expect(")");
             return psi(argarr);
