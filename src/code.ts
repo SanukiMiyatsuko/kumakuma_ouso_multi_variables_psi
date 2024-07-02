@@ -215,7 +215,7 @@ export function term_to_string(t: T, option: Options, lambda: number): string {
                         str = str + "_{" + term_to_string(t.arr[0], option, lambda) + "}(";
                     }
                 } else {
-                    if (equal(t.arr[0], ONE, lambda) || equal(t.arr[0], OMEGA, lambda) || equal(t.arr[0], LOMEGA, lambda) || equal(t.arr[0], IOTA, lambda)) {
+                    if (equal(t.arr[0], ONE, lambda) || (option.checkOnOffo && equal(t.arr[0], OMEGA, lambda)) || (option.checkOnOffO && equal(t.arr[0], LOMEGA, lambda)) || (option.checkOnOffI && equal(t.arr[0], IOTA, lambda))) {
                         str = str + "_" + term_to_string(t.arr[0], option, lambda) + "(";
                     } else {
                         str = str + "_{" + term_to_string(t.arr[0], option, lambda) + "}(";
